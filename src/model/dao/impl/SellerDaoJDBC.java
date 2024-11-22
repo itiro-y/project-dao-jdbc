@@ -118,10 +118,13 @@ public class SellerDaoJDBC implements SellerDao {
         ResultSet rs = null;
 
         try {
-            ps = conn.prepareStatement("SELECT seller.*,department.Name as DepName " +
+            ps = conn.prepareStatement(
+                "SELECT seller.*,department.Name as DepName " +
                     "FROM seller INNER JOIN department " +
                     "ON seller.DepartmentId = department.Id " +
-                    "WHERE seller.Id = ?");
+                    "WHERE seller.Id = ?"
+            );
+
             ps.setInt(1, id);
             rs = ps.executeQuery();
 
