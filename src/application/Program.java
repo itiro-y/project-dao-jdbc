@@ -23,7 +23,8 @@ public class Program {
 		System.out.println(seller);
 
 		System.out.println("\n=== TEST 2: seller findByDepartment ===");
-		List<Seller> sellerList = sellerDao.findByDepartment(new Department(2, "Electronics"));
+		Department dp0 = new Department(2, "Electronics");
+		List<Seller> sellerList = sellerDao.findByDepartment(dp0);
 		for(Seller s : sellerList) {
 			System.out.println(s);
 		}
@@ -33,5 +34,12 @@ public class Program {
 		for(Seller s : sellerList2) {
 			System.out.println(s);
 		}
+
+		System.out.println("\n=== TEST 4: seller insert ===");
+		Seller seller1 = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, dp0);
+		sellerDao.insert(seller1);
+		System.out.println("Inserted! New id = " + seller1.getId());
+
+		
 	}
 }
