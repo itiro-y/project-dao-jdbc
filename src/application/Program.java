@@ -17,6 +17,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		SellerDao sellerDao = DaoFactory.createSellerDao();
+
 		System.out.println("=== TEST 1: seller findById ===");
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
@@ -24,6 +25,12 @@ public class Program {
 		System.out.println("\n=== TEST 2: seller findByDepartment ===");
 		List<Seller> sellerList = sellerDao.findByDepartment(new Department(2, "Electronics"));
 		for(Seller s : sellerList) {
+			System.out.println(s);
+		}
+
+		System.out.println("\n=== TEST 3: seller findAll ===");
+		List<Seller> sellerList2 = sellerDao.findAll();
+		for(Seller s : sellerList2) {
 			System.out.println(s);
 		}
 	}
