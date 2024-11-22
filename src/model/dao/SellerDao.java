@@ -10,3 +10,4 @@ public interface SellerDao {
     Seller findById(Integer id);
     List<Seller> findAll();
 }
+
