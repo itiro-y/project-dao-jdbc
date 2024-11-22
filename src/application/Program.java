@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 import db.DB;
 import db.DbIntegrityException;
@@ -19,5 +20,11 @@ public class Program {
 		System.out.println("=== TEST 1: seller findById ===");
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
+
+		System.out.println("\n=== TEST 2: seller findByDepartment ===");
+		List<Seller> sellerList = sellerDao.findByDepartment(new Department(2, "Electronics"));
+		for(Seller s : sellerList) {
+			System.out.println(s);
+		}
 	}
 }
